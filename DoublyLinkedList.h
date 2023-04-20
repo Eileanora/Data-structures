@@ -1,14 +1,15 @@
 #include <iostream>
 
 using namespace std;
+template <class T>
 class DoublyLinkedList {
 	struct Node
 	{
-		int data;
+		T data;
 		Node* next;
 		Node* prev;
 
-		Node (int Data) {
+		Node (T Data) {
 			this->data = Data;
 			this->next = NULL;
 			this->prev = NULL;
@@ -33,7 +34,7 @@ public:
 		size = 0;
 	}
 
-	void insert_front(int data){
+	void insert_front(T data){
 		Node* newNode = new Node(data);
 		if (head == NULL)
 		{
@@ -48,7 +49,7 @@ public:
 		}
 		size++;
 	}
-	void insert_back(int data){
+	void insert_back(T data){
 		Node* newNode = new Node(data);
 		if (head == NULL)
 		{
@@ -90,6 +91,7 @@ public:
 			Node* temp = head;
 			head = head->next;
 			head->prev = NULL;
+			delete temp;
 		}
 	}
 	void pop_back()
