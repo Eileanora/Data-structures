@@ -34,7 +34,7 @@ public:
 		size = 0;
 	}
 
-	void insert_front(T data){
+	void push_front(T data){
 		Node* newNode = new Node(data);
 		if (head == NULL)
 		{
@@ -49,7 +49,7 @@ public:
 		}
 		size++;
 	}
-	void insert_back(T data){
+	void push_back(T data){
 		Node* newNode = new Node(data);
 		if (head == NULL)
 		{
