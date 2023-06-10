@@ -46,7 +46,7 @@ public:
             return void (cout << "Invalid position" << endl);
         
         // shift elements to the right
-        for (int i = size; i > pos; i--)
+        for (int i = size - 1; i > pos; i--)
             list[i] = list[i - 1];
 
         list[pos] = data;

@@ -12,19 +12,18 @@ private:
             this->right = NULL;
         }
     }
-    node *root;
 public:
+    node *Root;
     BinarySearchTree() {
-        root = NULL;
+        Root = NULL;
     }
+private:
     // add elements
     node *insert (node *root, T key) {
+        //first node root = first node
         if (root == NULL) {
             root = new node(key);
-            return root;
         }
-
-        // if key is smaller than root's key enter left subtree
         if (key <= root -> data)
             root -> left = insert(root -> left, key);
         else if (key > root -> data)
@@ -110,6 +109,33 @@ public:
             temp -> right = deleteNode(temp -> right, temp2 -> data);
         }
         return root;
+    }
+public:
+    void insert(T key) {
+        Root = insert(root, key);
+    }
+    void delete(T key) {
+        Root = deleteNode(root, key);
+    }
+    bool search(T key) {
+        if (search(root, key) == NULL)
+            return false;
+        return true;
+    }
+    void inorder() {
+        inorder(root);
+    }
+    void preorder() {
+        preorder(root);
+    }
+    void postorder() {
+        postorder(root);
+    }
+    T minValue() {
+        return minValueNode(root) -> data;
+    }
+    T maxValue() {
+        return maxValueNode(root) -> data;
     }
 
 };
